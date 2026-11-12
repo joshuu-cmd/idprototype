@@ -1,0 +1,131 @@
+#logo {
+    margin-left: 10vw;
+    width: 70px;
+    height: 40px;
+}
+#top{
+    margin: 0%;
+    position: fixed;
+    height: 80px;
+    display: flex;
+    align-items: center;
+    gap: 10px;
+    overflow: hidden;
+    width: 100%;
+}
+#side{
+    cursor: pointer;
+    padding-top: 5px;
+    height: 20px;
+    width: 30px;
+    align-self: flex-start;
+    border: none;
+}
+#profile{
+    margin-left: 35vw;
+    margin-right: 0%;
+    width: 40px;
+    height: 40px;
+    border-radius: 50%;
+}
+#dropdown{
+    padding: 6px;
+    margin-top: 80px;
+    margin-left: 70vw;
+    position: absolute;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    border-radius: 10px;
+    gap: 4px;
+    z-index: 9999;
+    width: 150px;
+    flex-direction: column;
+    background-color: rgb(193, 169, 140);
+}
+#dropdown a{
+    text-decoration: none;
+    color: rgb(28, 27, 25);
+}
+#dropdown button{
+    display: flex;
+    gap: 2px;
+    width: 70px;
+    background: none;
+    border: none;
+}
+#logout{
+    border-radius: 50%;
+    width: 20px;
+}
+#welcome{
+    padding-top: 83px;
+    color: auto;
+    align-self: center;
+}
+h1{
+    margin: 0%;
+}
+#main-actions{
+    border: solid 1px orangered;
+    display: flex;
+    flex-direction: column;
+    border-radius: 10px;
+    padding: 10px;
+}
+#actions{
+    align-self: center;
+    display: flex;
+    flex-direction: row;
+    flex-wrap: wrap;
+    align-items: center;
+    justify-content: center;
+    gap: 10px;
+    width: 70%;
+    margin: 0%;
+}
+#p{
+    color: rgb(1, 96, 21);
+    margin: 0%;
+    margin-bottom: 5px;
+}
+#actions div{
+    width: 100px;
+    height: 70px;
+    background-color: bisque;
+    border-radius: 10px;
+    display: flex;
+    justify-content: center;
+    flex-direction: column;
+    align-items: center;
+    transition: transform 0.3s ease;
+}
+#actions div:hover{
+    transform: translateY(-3px);
+    cursor: pointer;
+    box-shadow: 0 3px 13px rgb(23, 23, 23, 0.5);
+}
+body{
+    margin: 0%;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: center;
+    background-color: rgb(188, 187, 186);
+}
+#min-logo{
+    width: 25px;
+    height: 25px;
+    margin: 0%;
+    border-radius: 5px;
+}
+#text{
+    font-size: 65%;
+    margin: 0%;
+    color: #081495;
+}
+#main{
+    display: flex;
+    margin: 0%;
+    flex-direction: column;
+}
