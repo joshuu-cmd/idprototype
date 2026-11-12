@@ -13,17 +13,21 @@ function Dashboard() {
                 <img id="side" onClick={()=>setOpen(!sidebar)} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAATlBMVEX///8AAADKysqSkpJDQ0OPj4/8/Pyvr69mZmZERETR0dHf39/Nzc2fn5/v7+/Dw8M1NTWXl5fm5uZwcHD19fVJSUmpqalPT0+5ubnY2NjLimtlAAABYklEQVR4nO3d3U7CQBCA0RW0ivyIKAjv/6Ia9YLQvZxmmuGcN/jSQNuks9MaAAAAAAAAAAAAAND1+fyyWj3mW61enj+nCDw/zMk5PnCb3XRjGx34ml008hpceMwOGjnGBu6yezp2oYWL7JyORWjhW3ZOx1to4SU7p+MSWtiyczpiA9syu2dkGVw47LOLbuyH4MK2m1fiPvZe8Wt4z6668h5+Bf+sF/OwniYPAAAAAAAAAAC4L+vTch5OU3wUNbTDV/bHbFe+Di38y7a5jSNEDyO0Q3bRyCG48CM7aOQjNnDI7umILdxk53RsQgvrz1vUv4b1f4f1/0vv4H5Y/5mmze65dAo/7xZPczDNuwUAAAAAAAAAAHB3ip9BW/4c4fJnQdc/z7v+mezZPR2xgfV3I9Sft6i/o6T+npn6u4JmN4wwwThC+Z1dd7B37Xd3XvbavH8T7c4DAAAAAAAAAAAAgAq+ARHSJsg+Ic+3AAAAAElFTkSuQmCC"></img>
                 <img id="logo" alt="IDForege logo" src={logo}></img>
                 <h1>Dashboard</h1>
-                <img id="profile" onClick={() => setIsOpen(!isOpen)} src={profile}></img>
             </div>
+            <img id="profile" onClick={() => setIsOpen(!isOpen)} src={profile}></img>
             {isOpen && (
-                <div id="dropdown" className="dropdown-menu">
-                    <a href="/profile">My Profile</a><br></br>
-                    <a href="/settings">Settings</a><br></br>
-                    <a href="/notifications">Notifications</a>
-                    <button onClick={() => console.log("Logout")}>
-                        <img id="logout" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROlGfsZYQB966fVfUMwyIDiC9NCpbE-tIVTby7VdWNSg&s=10"></img>
-                        Logout
-                    </button>
+                <div id="dropdown-cover">
+                    <div id="test-cover" onClick={()=> window.location.href = "/"}></div>
+                    <div id="dropdown" className="dropdown-menu">
+                        <a id="back" href="/">Back</a>
+                        <a href="/profile">My Profile</a><br></br>
+                        <a href="/settings">Settings</a><br></br>
+                        <a href="/notifications">Notifications</a>
+                        <button onClick={() => confirm("Logout?")}>
+                            <img id="logout" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROlGfsZYQB966fVfUMwyIDiC9NCpbE-tIVTby7VdWNSg&s=10"></img>
+                            Logout
+                        </button>
+                    </div>
                 </div>
             )}
             {sidebar &&(
