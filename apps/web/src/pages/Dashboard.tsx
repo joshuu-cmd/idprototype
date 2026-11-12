@@ -2,13 +2,15 @@
 import logo from "./designer-logo.jpeg";
 import profile from "./profile1.jpeg";
 import { useState } from "react";
+import Sidebar from "../components/common/Sidebar";
 
 function Dashboard() {
     const [isOpen, setIsOpen] = useState(false);
+    const [sidebar, setOpen] = useState(false);
     return (
         <div id="main">
             <div id="top">
-                <img id="side" src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAATlBMVEX///8AAADKysqSkpJDQ0OPj4/8/Pyvr69mZmZERETR0dHf39/Nzc2fn5/v7+/Dw8M1NTWXl5fm5uZwcHD19fVJSUmpqalPT0+5ubnY2NjLimtlAAABYklEQVR4nO3d3U7CQBCA0RW0ivyIKAjv/6Ia9YLQvZxmmuGcN/jSQNuks9MaAAAAAAAAAAAAAND1+fyyWj3mW61enj+nCDw/zMk5PnCb3XRjGx34ml008hpceMwOGjnGBu6yezp2oYWL7JyORWjhW3ZOx1to4SU7p+MSWtiyczpiA9syu2dkGVw47LOLbuyH4MK2m1fiPvZe8Wt4z6668h5+Bf+sF/OwniYPAAAAAAAAAAC4L+vTch5OU3wUNbTDV/bHbFe+Di38y7a5jSNEDyO0Q3bRyCG48CM7aOQjNnDI7umILdxk53RsQgvrz1vUv4b1f4f1/0vv4H5Y/5mmze65dAo/7xZPczDNuwUAAAAAAAAAAHB3ip9BW/4c4fJnQdc/z7v+mezZPR2xgfV3I9Sft6i/o6T+npn6u4JmN4wwwThC+Z1dd7B37Xd3XvbavH8T7c4DAAAAAAAAAAAAgAq+ARHSJsg+Ic+3AAAAAElFTkSuQmCC"></img>
+                <img id="side" onClick={()=>setOpen(!sidebar)} src="data:image/png;base64,iVBORw0KGgoAAAANSUhEUgAAAOEAAADhCAMAAAAJbSJIAAAATlBMVEX///8AAADKysqSkpJDQ0OPj4/8/Pyvr69mZmZERETR0dHf39/Nzc2fn5/v7+/Dw8M1NTWXl5fm5uZwcHD19fVJSUmpqalPT0+5ubnY2NjLimtlAAABYklEQVR4nO3d3U7CQBCA0RW0ivyIKAjv/6Ia9YLQvZxmmuGcN/jSQNuks9MaAAAAAAAAAAAAAND1+fyyWj3mW61enj+nCDw/zMk5PnCb3XRjGx34ml008hpceMwOGjnGBu6yezp2oYWL7JyORWjhW3ZOx1to4SU7p+MSWtiyczpiA9syu2dkGVw47LOLbuyH4MK2m1fiPvZe8Wt4z6668h5+Bf+sF/OwniYPAAAAAAAAAAC4L+vTch5OU3wUNbTDV/bHbFe+Di38y7a5jSNEDyO0Q3bRyCG48CM7aOQjNnDI7umILdxk53RsQgvrz1vUv4b1f4f1/0vv4H5Y/5mmze65dAo/7xZPczDNuwUAAAAAAAAAAHB3ip9BW/4c4fJnQdc/z7v+mezZPR2xgfV3I9Sft6i/o6T+npn6u4JmN4wwwThC+Z1dd7B37Xd3XvbavH8T7c4DAAAAAAAAAAAAgAq+ARHSJsg+Ic+3AAAAAElFTkSuQmCC"></img>
                 <img id="logo" alt="IDForege logo" src={logo}></img>
                 <h1>Dashboard</h1>
                 <img id="profile" onClick={() => setIsOpen(!isOpen)} src={profile}></img>
@@ -23,6 +25,9 @@ function Dashboard() {
                         Logout
                     </button>
                 </div>
+            )}
+            {sidebar &&(
+                <Sidebar/>
             )}
             <p id="welcome">Welcome to IDForge, your number one designer.</p>
             <div id="main-actions">
