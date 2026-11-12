@@ -23,6 +23,7 @@
     border: none;
 }
 #profile{
+    right: 0;
     margin-left: 35vw;
     margin-right: 0%;
     width: 40px;
