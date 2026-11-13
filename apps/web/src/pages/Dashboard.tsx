@@ -4,7 +4,11 @@ import profile from "./profile1.jpeg";
 import { useState } from "react";
 import Sidebar from "../components/common/Sidebar";
 
-function Dashboard() {
+type DashboardProps = {
+  onLogout: () => void;
+};
+
+function Dashboard({ onLogout }: DashboardProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [sidebar, setOpen] = useState(false);
     return (
@@ -17,13 +21,17 @@ function Dashboard() {
             <img id="profile" onClick={() => setIsOpen(!isOpen)} src={profile}></img>
             {isOpen && (
                 <div id="dropdown-cover">
-                    <div id="test-cover" onClick={()=> window.location.href = "/"}></div>
+                    <div id="test-cover" onClick={() => setIsOpen(!isOpen)}></div>
                     <div id="dropdown" className="dropdown-menu">
-                        <a id="back" href="/">Back</a>
+                        <a id="back" onClick={() => setIsOpen(!isOpen)}>↩️Back</a>
                         <a href="/profile">My Profile</a><br></br>
                         <a href="/settings">Settings</a><br></br>
                         <a href="/notifications">Notifications</a>
-                        <button onClick={() => confirm("Logout?")}>
+                        <button onClick={() => {
+                            if (window.confirm("Logout?")){
+                                onLogout();
+                            }
+                        }}>
                             <img id="logout" src="https://encrypted-tbn0.gstatic.com/images?q=tbn:ANd9GcROlGfsZYQB966fVfUMwyIDiC9NCpbE-tIVTby7VdWNSg&s=10"></img>
                             Logout
                         </button>
@@ -31,7 +39,7 @@ function Dashboard() {
                 </div>
             )}
             {sidebar &&(
-                <Sidebar/>
+                <Sidebar onClose={() => setOpen(false)}/>
             )}
             <p id="welcome">Welcome to IDForge, your number one designer.</p>
             <div id="main-actions">
