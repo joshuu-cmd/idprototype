@@ -3,9 +3,10 @@
 
 type LoginProps = {
   onLogin: (name: string) => void;
+  onRegister: () => void;
 };
 
-function Login({ onLogin }: LoginProps) {
+function Login({ onLogin, onRegister }: LoginProps) {
   return (
     <div id="Login" className="auth-page">
       <form
@@ -29,7 +30,7 @@ function Login({ onLogin }: LoginProps) {
         <a>Forgot password</a>
         <p>
           Don&apos;t have an account yet?{" "}
-          <span onClick={() => (window.location.href = "/register")}>
+          <span onClick={onRegister}>
             Register.
           </span>
         </p>
