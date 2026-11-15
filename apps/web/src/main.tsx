@@ -1,18 +1,41 @@
+import { useState } from "react";
 import { createRoot } from "react-dom/client";
-import "./index.css"
+import "./index.css";
 import Dashboard from "./pages/Dashboard";
 import Login from "./features/authentication/Login";
-import { useState } from "react";
+import Register from "./features/authentication/Register";
 
+function App() {
+  const [username, setUsername] = useState(
+    () => sessionStorage.getItem("username") ?? "",
+  );
 
-function App(){
-    const [isAuthenticated, setIsAuthenticated] =
-    useState(false);
-    return isAuthenticated
-    ? <Dashboard onLogout ={() =>setIsAuthenticated(false)} />
-    : <Login onLogin={() => setIsAuthenticated(true)} />;
+  if (window.location.pathname === "/register") {
+    return <Register />;
+  }
+
+  if (!username) {
+    return (
+      <Login
+        onLogin={(name) => {
+          sessionStorage.setItem("username", name);
+          setUsername(name);
+        }}
+      />
+    );
+  }
+
+  return (
+    <Dashboard
+      name={username}
+      onLogout={() => {
+        sessionStorage.removeItem("username");
+        setUsername("");
+      }}
+    />
+  );
 }
-const root = document.getElementById("root");
-if (!root) throw new Error("Missing #root element")
 
+const root = document.getElementById("root");
+if (!root) throw new Error("Missing #root element");
 createRoot(root).render(<App />);

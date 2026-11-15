@@ -5,10 +5,11 @@ import { useState } from "react";
 import Sidebar from "../components/common/Sidebar";
 
 type DashboardProps = {
+  name: string;
   onLogout: () => void;
 };
 
-function Dashboard({ onLogout }: DashboardProps) {
+function Dashboard({ name, onLogout }: DashboardProps) {
     const [isOpen, setIsOpen] = useState(false);
     const [sidebar, setOpen] = useState(false);
     return (
@@ -41,7 +42,8 @@ function Dashboard({ onLogout }: DashboardProps) {
             {sidebar &&(
                 <Sidebar onClose={() => setOpen(false)}/>
             )}
-            <p id="welcome">Welcome to IDForge, your number one designer.</p>
+            <p id="padding">Welcome back <span id="name">{name}</span></p>
+            <p id="welcome">IDForge, your number one designer.</p>
             <div id="main-actions">
                 <p id="p">Quick Actions</p>
                 <div id="actions">
