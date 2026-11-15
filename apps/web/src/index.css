@@ -41,12 +41,15 @@
 #dropdown{
     padding: 20px;
     margin: 0;
-    right: 0;
+    right: 27px;
+    top: 50px;
     position: absolute;
+    border: none;
     display: flex;
     align-items: center;
     gap: 10px;
-    height: 100vh;
+    height: 30vh;
+    max-height: 200px;
     z-index: 9999;
     width: 150px;
     flex-direction: column;
